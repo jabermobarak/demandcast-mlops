@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "files": {
+    "model.cbm": "e64069c49bcdc8d71122c0473746db69a56f262a32bafcf8101277c6dfd2404b",
+    "model_card.json": "b14fe558e2358ac37869fd5a4250e631e8ec34402accf66f17adc63c674744d9",
+    "reference.json": "e22cb8873aeb1f05f0bfd576b5990a7e5ba8aba028b8de204761e4fb63101b9a",
+    "calibration.json": "c9d03ef81ab45562efd80c847a0e8462c55965518059b85ec87cb2f24b902303",
+    "demo_features.csv": "6abd10eaf548afecf8e1c5ab432f41e250012fc65581d8574b6875f1e4d51c21"
+  }
+}

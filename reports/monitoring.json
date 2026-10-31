@@ -1,0 +1,48 @@
+{
+  "rows": 168,
+  "minimum_rows": 100,
+  "sufficient_sample": true,
+  "status": "review",
+  "features": [
+    {
+      "feature": "lag_24",
+      "psi": 2.2965770334641924,
+      "missing_rate": 0.011904761904761904,
+      "signal": "review"
+    },
+    {
+      "feature": "lag_48",
+      "psi": 2.216389328239218,
+      "missing_rate": 0.011904761904761904,
+      "signal": "review"
+    },
+    {
+      "feature": "lag_168",
+      "psi": 0.67401697906208,
+      "missing_rate": 0.005952380952380952,
+      "signal": "review"
+    },
+    {
+      "feature": "rolling_mean_24",
+      "psi": 5.069486825475493,
+      "missing_rate": 0.0,
+      "signal": "review"
+    },
+    {
+      "feature": "rolling_mean_168",
+      "psi": 5.090199573800515,
+      "missing_rate": 0.0,
+      "signal": "review"
+    }
+  ],
+  "caveat": "PSI is a heuristic marginal-distribution check. Seasonality can trigger it; it does not prove concept drift or justify automatic retraining.",
+  "reference_period": {
+    "rows": 744,
+    "start": "2012-08-01 00:00:00",
+    "end": "2012-08-31 23:00:00"
+  },
+  "current_period": {
+    "start": "2012-12-25 00:00:00",
+    "end": "2012-12-31 23:00:00"
+  }
+}

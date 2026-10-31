@@ -1,0 +1,528 @@
+{
+  "generated_at_utc": "2026-10-31T19:43:14.045301+00:00",
+  "python": "3.12.14",
+  "versions": {
+    "catboost": "1.2.10",
+    "duckdb": "1.5.6",
+    "pandas": "2.2.3",
+    "numpy": "2.3.5",
+    "scikit-learn": "1.8.0"
+  },
+  "source": {
+    "url": "https://archive.ics.uci.edu/static/public/275/bike+sharing+dataset.zip",
+    "dataset_page": "https://archive.ics.uci.edu/dataset/275/bike+sharing+dataset",
+    "doi": "10.24432/C5W894",
+    "author": "Hadi Fanaee-T",
+    "year": 2013,
+    "license": "CC BY 4.0",
+    "archive_sha256": "b70182d0d0508e9abbb79306ce5c0cec34869000f8220175ac83d11dbe845401",
+    "csv_sha256": "e03de4ee4ef4dc376ac6e04bf829673c6269e8eba5c60fa121640fa2f829504f"
+  },
+  "observed_rows": 17379,
+  "clock_hours": 17544,
+  "missing_clock_hours": 165,
+  "warmup_hours": 191,
+  "splits": {
+    "train": {
+      "rows": 12819,
+      "start": "2011-01-08 23:00:00",
+      "end": "2012-06-30 23:00:00"
+    },
+    "validation": {
+      "rows": 744,
+      "start": "2012-07-01 00:00:00",
+      "end": "2012-07-31 23:00:00"
+    },
+    "calibration": {
+      "rows": 744,
+      "start": "2012-08-01 00:00:00",
+      "end": "2012-08-31 23:00:00"
+    },
+    "test": {
+      "rows": 2888,
+      "start": "2012-09-01 00:00:00",
+      "end": "2012-12-31 23:00:00"
+    }
+  },
+  "selection": {
+    "selected_candidate": "catboost_depth6",
+    "criterion": "Lowest July validation MAE among CatBoost candidates",
+    "beats_all_validation_baselines": true,
+    "test_used_for_selection": false,
+    "refit_on_calibration": false,
+    "candidates": [
+      {
+        "name": "seasonal_24h",
+        "family": "baseline",
+        "metrics": {
+          "mae": 86.42338709677419,
+          "rmse": 139.80758186248897,
+          "wape": 0.3157995550251219,
+          "rows": 744
+        },
+        "run_id": "1727a33c1fe642b1aff513b9ba1d73c9"
+      },
+      {
+        "name": "seasonal_168h",
+        "family": "baseline",
+        "metrics": {
+          "mae": 64.20564516129032,
+          "rmse": 101.88504881503964,
+          "wape": 0.23461374117785735,
+          "rows": 744
+        },
+        "run_id": "63829e2e1f7e4d0a9649494858ad99e0"
+      },
+      {
+        "name": "ridge",
+        "family": "baseline",
+        "metrics": {
+          "mae": 64.63351582368617,
+          "rmse": 92.02628693311742,
+          "wape": 0.23617722265355567,
+          "rows": 744
+        },
+        "run_id": "22ac93f9b9b14e4698a7f0630e4c188c"
+      },
+      {
+        "name": "catboost_depth4",
+        "family": "catboost",
+        "params": {
+          "depth": 4,
+          "iterations": 650,
+          "learning_rate": 0.07
+        },
+        "trees_retained": 229,
+        "metrics": {
+          "mae": 57.124660982681036,
+          "rmse": 83.43692430888972,
+          "wape": 0.20873912867000985,
+          "rows": 744
+        },
+        "run_id": "529f7c088d2d45ddbce3c1686d4deca8"
+      },
+      {
+        "name": "catboost_depth6",
+        "family": "catboost",
+        "params": {
+          "depth": 6,
+          "iterations": 650,
+          "learning_rate": 0.06
+        },
+        "trees_retained": 172,
+        "metrics": {
+          "mae": 53.95502990688188,
+          "rmse": 81.6337750870439,
+          "wape": 0.19715698502860962,
+          "rows": 744
+        },
+        "run_id": "489b733441a34626a5480ff0316552bd"
+      },
+      {
+        "name": "catboost_depth8",
+        "family": "catboost",
+        "params": {
+          "depth": 8,
+          "iterations": 450,
+          "learning_rate": 0.06
+        },
+        "trees_retained": 136,
+        "metrics": {
+          "mae": 54.938986362215935,
+          "rmse": 82.43400184828526,
+          "wape": 0.2007524586752354,
+          "rows": 744
+        },
+        "run_id": "6669375c32f741dbaacf57b2731ead1f"
+      }
+    ]
+  },
+  "leaderboard": [
+    {
+      "name": "catboost_depth6",
+      "mae": 65.67131774270149,
+      "rmse": 100.16108281279944,
+      "wape": 0.2733658488520634,
+      "rows": 2888
+    },
+    {
+      "name": "ridge",
+      "mae": 65.90267649714895,
+      "rmse": 100.69837310499143,
+      "wape": 0.27432891133463266,
+      "rows": 2888
+    },
+    {
+      "name": "seasonal_168h",
+      "mae": 69.50346260387812,
+      "rmse": 117.78163630386324,
+      "wape": 0.2893176763607484,
+      "rows": 2888
+    },
+    {
+      "name": "seasonal_24h",
+      "mae": 79.77146814404432,
+      "rmse": 133.14922220561868,
+      "wape": 0.33205965485283034,
+      "rows": 2888
+    }
+  ],
+  "selected_test_metrics": {
+    "mae": 65.67131774270149,
+    "rmse": 100.16108281279944,
+    "wape": 0.2733658488520634,
+    "rows": 2888
+  },
+  "mae_improvement_vs_weekly_baseline_percent": 5.51360280137008,
+  "intervals": {
+    "coverage": 0.828601108033241,
+    "mean_width": 223.79321314932767,
+    "nominal_coverage": 0.9,
+    "warning": "Empirical coverage only; temporal dependence prevents an exchangeability guarantee."
+  },
+  "calibration": {
+    "method": "Absolute-residual split calibration",
+    "alpha": 0.1,
+    "radius": 125.14057930973877,
+    "rows": 744,
+    "period": {
+      "rows": 744,
+      "start": "2012-08-01 00:00:00",
+      "end": "2012-08-31 23:00:00"
+    },
+    "guarantee": "No distribution-free temporal coverage guarantee; inspect measured holdout coverage."
+  },
+  "by_hour": [
+    {
+      "group": 0,
+      "mae": 30.718890131975904,
+      "rmse": 47.2358301228561,
+      "wape": 0.46059302428365356,
+      "rows": 121
+    },
+    {
+      "group": 1,
+      "mae": 22.309084521966035,
+      "rmse": 28.714975317400302,
+      "wape": 0.5244055127592407,
+      "rows": 120
+    },
+    {
+      "group": 2,
+      "mae": 17.12413543162154,
+      "rmse": 22.47778574570936,
+      "wape": 0.6208145775814455,
+      "rows": 120
+    },
+    {
+      "group": 3,
+      "mae": 12.08306608959928,
+      "rmse": 16.439001962590893,
+      "wape": 0.8630761492570914,
+      "rows": 117
+    },
+    {
+      "group": 4,
+      "mae": 7.8254827802204785,
+      "rmse": 9.61283195439427,
+      "wape": 0.9211003470289189,
+      "rows": 119
+    },
+    {
+      "group": 5,
+      "mae": 12.853976405710617,
+      "rmse": 15.868387021745878,
+      "wape": 0.4566243838618336,
+      "rows": 120
+    },
+    {
+      "group": 6,
+      "mae": 27.339374940419443,
+      "rmse": 37.85304117929273,
+      "wape": 0.2795913578362309,
+      "rows": 120
+    },
+    {
+      "group": 7,
+      "mae": 80.79846393650202,
+      "rmse": 113.8014197988303,
+      "wape": 0.29182289457878835,
+      "rows": 120
+    },
+    {
+      "group": 8,
+      "mae": 151.71080968269234,
+      "rmse": 194.84086757314424,
+      "wape": 0.31989627766513934,
+      "rows": 120
+    },
+    {
+      "group": 9,
+      "mae": 70.84886823174412,
+      "rmse": 89.86294630977358,
+      "wape": 0.2506371919403701,
+      "rows": 120
+    },
+    {
+      "group": 10,
+      "mae": 53.97986108815751,
+      "rmse": 74.32435218377033,
+      "wape": 0.23911344889549288,
+      "rows": 120
+    },
+    {
+      "group": 11,
+      "mae": 66.44333207526171,
+      "rmse": 85.74421332261122,
+      "wape": 0.23869711849329117,
+      "rows": 120
+    },
+    {
+      "group": 12,
+      "mae": 89.00919769114829,
+      "rmse": 115.43727080012079,
+      "wape": 0.25867873684187337,
+      "rows": 120
+    },
+    {
+      "group": 13,
+      "mae": 88.57082786196752,
+      "rmse": 113.50045184292014,
+      "wape": 0.2597951655991969,
+      "rows": 121
+    },
+    {
+      "group": 14,
+      "mae": 85.68503283865276,
+      "rmse": 109.93640433968197,
+      "wape": 0.2638341087990682,
+      "rows": 121
+    },
+    {
+      "group": 15,
+      "mae": 89.30942437350556,
+      "rmse": 115.66616642973155,
+      "wape": 0.2614608973698719,
+      "rows": 121
+    },
+    {
+      "group": 16,
+      "mae": 98.1102277255958,
+      "rmse": 129.1359294277103,
+      "wape": 0.235197082751458,
+      "rows": 121
+    },
+    {
+      "group": 17,
+      "mae": 164.3455964725367,
+      "rmse": 198.95544136173575,
+      "wape": 0.2826697537054291,
+      "rows": 121
+    },
+    {
+      "group": 18,
+      "mae": 141.47768509291862,
+      "rmse": 172.36029292669082,
+      "wape": 0.27422987418891714,
+      "rows": 121
+    },
+    {
+      "group": 19,
+      "mae": 88.89747113992436,
+      "rmse": 109.70504148798578,
+      "wape": 0.24464040592078162,
+      "rows": 121
+    },
+    {
+      "group": 20,
+      "mae": 54.87546166002124,
+      "rmse": 71.60341598367617,
+      "wape": 0.21284558471799492,
+      "rows": 121
+    },
+    {
+      "group": 21,
+      "mae": 44.77470875556331,
+      "rmse": 57.86190900842073,
+      "wape": 0.23349307242266779,
+      "rows": 121
+    },
+    {
+      "group": 22,
+      "mae": 38.29979532356361,
+      "rmse": 49.4622799499176,
+      "wape": 0.2619270465241167,
+      "rows": 121
+    },
+    {
+      "group": 23,
+      "mae": 35.461837111094376,
+      "rmse": 46.00117991553782,
+      "wape": 0.3428591522526903,
+      "rows": 121
+    }
+  ],
+  "by_month": [
+    {
+      "group": "2012-09",
+      "mae": 70.78857908200824,
+      "rmse": 108.40262875240049,
+      "wape": 0.23318423107632658,
+      "rows": 720
+    },
+    {
+      "group": "2012-10",
+      "mae": 76.8471002281718,
+      "rmse": 112.28883312690718,
+      "wape": 0.273624388136982,
+      "rows": 708
+    },
+    {
+      "group": "2012-11",
+      "mae": 59.93126062770422,
+      "rmse": 92.2957319605985,
+      "wape": 0.28186504435028314,
+      "rows": 718
+    },
+    {
+      "group": "2012-12",
+      "mae": 55.59649138765323,
+      "rmse": 85.85231947844484,
+      "wape": 0.3334540154198726,
+      "rows": 742
+    }
+  ],
+  "paired_uncertainty": {
+    "seasonal_168h": {
+      "mean_mae_reduction": 3.8321448611766313,
+      "percentile_interval_95": [
+        -6.127093934795891,
+        14.679273298081734
+      ],
+      "block_days": 7,
+      "repetitions": 1000,
+      "seed": 42,
+      "caveat": "Descriptive paired moving-block bootstrap on one time period; not a formal population-significance or causal claim."
+    },
+    "ridge": {
+      "mean_mae_reduction": 0.23135875444745702,
+      "percentile_interval_95": [
+        -5.517341475895213,
+        4.805704363272012
+      ],
+      "block_days": 7,
+      "repetitions": 1000,
+      "seed": 42,
+      "caveat": "Descriptive paired moving-block bootstrap on one time period; not a formal population-significance or causal claim."
+    }
+  },
+  "worst_days": [
+    {
+      "date": "2012-11-22",
+      "mae": 143.7784988270787
+    },
+    {
+      "date": "2012-12-25",
+      "mae": 139.86683712914956
+    },
+    {
+      "date": "2012-12-26",
+      "mae": 139.8465128618569
+    },
+    {
+      "date": "2012-12-24",
+      "mae": 139.6280583131848
+    },
+    {
+      "date": "2012-10-30",
+      "mae": 135.30416514126802
+    },
+    {
+      "date": "2012-09-03",
+      "mae": 131.4084858132518
+    },
+    {
+      "date": "2012-12-22",
+      "mae": 130.5921069207112
+    },
+    {
+      "date": "2012-11-24",
+      "mae": 125.39688821736523
+    }
+  ],
+  "feature_importance": [
+    {
+      "feature": "lag_168",
+      "importance": 38.970737537474
+    },
+    {
+      "feature": "lag_24",
+      "importance": 17.221229580043925
+    },
+    {
+      "feature": "hour_sin",
+      "importance": 9.467164114290354
+    },
+    {
+      "feature": "hour_cos",
+      "importance": 7.192209777772696
+    },
+    {
+      "feature": "day_index",
+      "importance": 5.469840859555196
+    },
+    {
+      "feature": "weekday_sin",
+      "importance": 5.4063720730565565
+    },
+    {
+      "feature": "rolling_mean_168",
+      "importance": 3.434051702603753
+    },
+    {
+      "feature": "is_weekend",
+      "importance": 3.2184754567782896
+    },
+    {
+      "feature": "lag_48",
+      "importance": 3.1303244740469944
+    },
+    {
+      "feature": "month_cos",
+      "importance": 2.009470484436553
+    },
+    {
+      "feature": "rolling_mean_24",
+      "importance": 1.802914740859962
+    },
+    {
+      "feature": "weekday_cos",
+      "importance": 1.670907774754638
+    },
+    {
+      "feature": "month_sin",
+      "importance": 1.0063014243271
+    }
+  ],
+  "protocol": "Rolling day-ahead: at each day-start 00:00 origin, predict that day's 24 hourly intervals. A count labeled h is assumed available at h+1 hour, with no extra ingestion delay. Actual past test observations become available at later origins.",
+  "limitations": [
+    "One public, historical, aggregate demand series; not a live operating system.",
+    "Measured rentals are observed demand, not unconstrained demand or inventory requirements.",
+    "No same-day weather, casual or registered counts are used as features.",
+    "Past-count features are conservative: recent observations after t-24h are omitted even when available.",
+    "No random split. Final test was excluded from model and threshold selection.",
+    "Temporal dependence and seasonal shift can reduce interval coverage.",
+    "SHAP explains model associations, not causal effects.",
+    "No production traffic, distributed scale, cloud deployment, or business savings are claimed."
+  ],
+  "registry": {
+    "enabled": true,
+    "tracking_backend": "local SQLite",
+    "name": "DemandCast",
+    "version": 3,
+    "alias": "candidate",
+    "run_id": "489b733441a34626a5480ff0316552bd",
+    "mlflow_version": "3.17.2"
+  },
+  "training_seconds": 4.4
+}

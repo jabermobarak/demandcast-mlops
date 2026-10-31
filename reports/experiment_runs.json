@@ -1,0 +1,93 @@
+{
+  "selected_candidate": "catboost_depth6",
+  "criterion": "Lowest July validation MAE among CatBoost candidates",
+  "beats_all_validation_baselines": true,
+  "test_used_for_selection": false,
+  "refit_on_calibration": false,
+  "candidates": [
+    {
+      "name": "seasonal_24h",
+      "family": "baseline",
+      "metrics": {
+        "mae": 86.42338709677419,
+        "rmse": 139.80758186248897,
+        "wape": 0.3157995550251219,
+        "rows": 744
+      },
+      "run_id": "1727a33c1fe642b1aff513b9ba1d73c9"
+    },
+    {
+      "name": "seasonal_168h",
+      "family": "baseline",
+      "metrics": {
+        "mae": 64.20564516129032,
+        "rmse": 101.88504881503964,
+        "wape": 0.23461374117785735,
+        "rows": 744
+      },
+      "run_id": "63829e2e1f7e4d0a9649494858ad99e0"
+    },
+    {
+      "name": "ridge",
+      "family": "baseline",
+      "metrics": {
+        "mae": 64.63351582368617,
+        "rmse": 92.02628693311742,
+        "wape": 0.23617722265355567,
+        "rows": 744
+      },
+      "run_id": "22ac93f9b9b14e4698a7f0630e4c188c"
+    },
+    {
+      "name": "catboost_depth4",
+      "family": "catboost",
+      "params": {
+        "depth": 4,
+        "iterations": 650,
+        "learning_rate": 0.07
+      },
+      "trees_retained": 229,
+      "metrics": {
+        "mae": 57.124660982681036,
+        "rmse": 83.43692430888972,
+        "wape": 0.20873912867000985,
+        "rows": 744
+      },
+      "run_id": "529f7c088d2d45ddbce3c1686d4deca8"
+    },
+    {
+      "name": "catboost_depth6",
+      "family": "catboost",
+      "params": {
+        "depth": 6,
+        "iterations": 650,
+        "learning_rate": 0.06
+      },
+      "trees_retained": 172,
+      "metrics": {
+        "mae": 53.95502990688188,
+        "rmse": 81.6337750870439,
+        "wape": 0.19715698502860962,
+        "rows": 744
+      },
+      "run_id": "489b733441a34626a5480ff0316552bd"
+    },
+    {
+      "name": "catboost_depth8",
+      "family": "catboost",
+      "params": {
+        "depth": 8,
+        "iterations": 450,
+        "learning_rate": 0.06
+      },
+      "trees_retained": 136,
+      "metrics": {
+        "mae": 54.938986362215935,
+        "rmse": 82.43400184828526,
+        "wape": 0.2007524586752354,
+        "rows": 744
+      },
+      "run_id": "6669375c32f741dbaacf57b2731ead1f"
+    }
+  ]
+}

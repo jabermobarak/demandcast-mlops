@@ -1,0 +1,43 @@
+{
+  "executed_locally": true,
+  "hosted_colab_tested": false,
+  "retrain": true,
+  "code_cells": [
+    {
+      "cell": 1,
+      "passed": true,
+      "seconds": 0.0
+    },
+    {
+      "cell": 2,
+      "passed": true,
+      "seconds": 9.02
+    },
+    {
+      "cell": 4,
+      "passed": true,
+      "seconds": 12.88
+    },
+    {
+      "cell": 5,
+      "passed": true,
+      "seconds": 2.44
+    },
+    {
+      "cell": 6,
+      "passed": true,
+      "seconds": 0.03
+    },
+    {
+      "cell": 8,
+      "passed": true,
+      "seconds": 1.06
+    },
+    {
+      "cell": 9,
+      "passed": true,
+      "seconds": 0.07
+    }
+  ],
+  "all_passed": true
+}

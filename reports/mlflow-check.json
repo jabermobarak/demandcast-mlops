@@ -1,0 +1,13 @@
+{
+  "enabled": true,
+  "tracking_backend": "local SQLite",
+  "name": "DemandCast",
+  "version": 3,
+  "alias": "candidate",
+  "run_id": "489b733441a34626a5480ff0316552bd",
+  "mlflow_version": "3.17.2",
+  "loaded_registered_model": true,
+  "sample_rows": 10,
+  "maximum_prediction_difference": 0.0,
+  "runs_this_training": 6
+}

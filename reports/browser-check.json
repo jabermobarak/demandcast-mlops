@@ -1,0 +1,19 @@
+{
+  "browser": "153.0.8010.0",
+  "desktop": "1512x1120",
+  "mobile": "390x844",
+  "checks": [
+    "initial forecast",
+    "24 hourly points",
+    "native SHAP explanations",
+    "capacity control",
+    "date selection",
+    "four-model leaderboard",
+    "drift simulation",
+    "historical drift reset",
+    "JSON export",
+    "mobile viewport"
+  ],
+  "pageErrors": [],
+  "mobileHorizontalOverflow": false
+}

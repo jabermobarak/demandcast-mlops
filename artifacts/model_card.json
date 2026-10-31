@@ -1,0 +1,57 @@
+{
+  "name": "DemandCast",
+  "version": "0.1.0",
+  "candidate": "catboost_depth6",
+  "features": [
+    "lag_24",
+    "lag_48",
+    "lag_168",
+    "rolling_mean_24",
+    "rolling_mean_168",
+    "hour_sin",
+    "hour_cos",
+    "weekday_sin",
+    "weekday_cos",
+    "month_sin",
+    "month_cos",
+    "is_weekend",
+    "day_index"
+  ],
+  "seed": 42,
+  "prediction_units": "rentals per hour",
+  "forecast_origin": "Day-start 00:00, dataset-local naive time; counts complete at the next hour boundary",
+  "train_period": {
+    "rows": 12819,
+    "start": "2011-01-08 23:00:00",
+    "end": "2012-06-30 23:00:00"
+  },
+  "source": {
+    "url": "https://archive.ics.uci.edu/static/public/275/bike+sharing+dataset.zip",
+    "dataset_page": "https://archive.ics.uci.edu/dataset/275/bike+sharing+dataset",
+    "doi": "10.24432/C5W894",
+    "author": "Hadi Fanaee-T",
+    "year": 2013,
+    "license": "CC BY 4.0",
+    "archive_sha256": "b70182d0d0508e9abbb79306ce5c0cec34869000f8220175ac83d11dbe845401",
+    "csv_sha256": "e03de4ee4ef4dc376ac6e04bf829673c6269e8eba5c60fa121640fa2f829504f"
+  },
+  "registry": {
+    "enabled": true,
+    "tracking_backend": "local SQLite",
+    "name": "DemandCast",
+    "version": 3,
+    "alias": "candidate",
+    "run_id": "489b733441a34626a5480ff0316552bd",
+    "mlflow_version": "3.17.2"
+  },
+  "limitations": [
+    "One public, historical, aggregate demand series; not a live operating system.",
+    "Measured rentals are observed demand, not unconstrained demand or inventory requirements.",
+    "No same-day weather, casual or registered counts are used as features.",
+    "Past-count features are conservative: recent observations after t-24h are omitted even when available.",
+    "No random split. Final test was excluded from model and threshold selection.",
+    "Temporal dependence and seasonal shift can reduce interval coverage.",
+    "SHAP explains model associations, not causal effects.",
+    "No production traffic, distributed scale, cloud deployment, or business savings are claimed."
+  ]
+}
